@@ -144,7 +144,7 @@ _message_after_copy: |
     Next step (if you have not previously initialized your project)
     run "just setup" in the root of your project directory.
 
-_tasks:
+# _tasks:
     # Commands to execute after generating or updating a project from the template.
     # - "git init"
     # - "rm {{ name_of_the_project }}/README.md"
