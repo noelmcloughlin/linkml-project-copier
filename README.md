@@ -83,7 +83,7 @@ The following are required and recommended tools for using this copier template 
 
 To generate a new LinkML project first create a new empty directory for the project and then run the following:
 
-```bash
+```shell
 cd path/to/new/directory
 copier copy --trust https://github.com/dalito/linkml-project-copier .
 ```
@@ -95,7 +95,7 @@ The defaults are fine for most projects, but pick the name for your project care
 
 It is also possible to use non-default branches or specific tags via `--vcs-ref` which is useful when developing the template:
 
-```bash
+```shell
 copier copy --trust --vcs-ref branch-name gh:dalito/linkml-project-copier ./path/to/destination
 ```
 
@@ -110,7 +110,7 @@ Optionally customize your project if needed:
 
 Setup your project
 
-```bash
+```shell
 cd my-awesome-schema  # using the folder example above
 just setup
 ```
@@ -121,7 +121,7 @@ Edit the schema (the .yaml file) in the `src/my_awesome_schema/schema` folder wi
 
 ### Step 4: Validate the schema
 
-```bash
+```shell
 just test
 ```
 
@@ -132,7 +132,7 @@ LinkML generates schema documentation automatically. The template includes the c
 
 You can also preview the documentation locally before pushing to GitHub by running:
 
-```bash
+```shell
 just testdoc
 ```
 
@@ -142,7 +142,7 @@ just testdoc
 
 2. Add the remote to your local git repository:
 
-   ```bash
+   ```shell
    git remote add origin https://github.com/{github-user-or-organization}/{project-name}.git
    git branch -M main
    git push -u origin main
@@ -172,11 +172,16 @@ The commands are written to be run at the root of your project.
 * Start with a clean state of the existing project (check with `git status`).
 * Create a new branch and activate it:
 
-  `git switch -c migrate-to-copier`
+  ```shell
+  git switch -c migrate-to-copier
+  ```
+
 
 * Adapt your project and create a copier answers file (`.copier-answers`) by running:
 
-  `copier copy --trust --skip-tasks --vcs-ref=HEAD gh:dalito/linkml-project-copier .`
+  ```shell
+  copier copy --trust --skip-tasks --vcs-ref=HEAD gh:dalito/linkml-project-copier .
+  `
 
   If you start from a linkml-project-cookiecutter based project,
   look into the `.cruft.json` file to find out which values you chose when you configured  your project.
@@ -194,13 +199,13 @@ You can also change the project by providing different answers to the questions 
 
 To update your project with changes from the template and to reconfigure your project options, run:
 
-```bash
+```shell
 copier update --trust --skip-tasks
 ```
 
 To do a pure update without re-configuration run:
 
-```bash
+```shell
 copier update --trust --skip-tasks --skip-answered
 ```
 
