@@ -181,10 +181,10 @@ The commands are written to be run at the root of your project.
 
   ```shell
   copier copy --trust --skip-tasks --vcs-ref=HEAD gh:dalito/linkml-project-copier .
-  `
+  ```
 
   If you start from a linkml-project-cookiecutter based project,
-  look into the `.cruft.json` file to find out which values you chose when you configured  your project.
+  look into the `.cruft.json` file to find out which values you chose when you created your project.
   Be sure to enter the same values when answering the copier questions.
 
 * Carefully review the changes that copier made to your project.
