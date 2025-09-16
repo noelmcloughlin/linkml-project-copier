@@ -5,17 +5,6 @@
 This template uses the code-scaffolding tool [copier](https://copier.readthedocs.io/) to create a [LinkML](https://github.com/linkml/linkml) project.
 Copier supports code lifecycle management, allowing you to seamlessly incorporate updates into your project when the template is enhanced.
 
-* Starting from 0.2.x we give up compatibility with the directory layout from
-  [linkml-project-cookiecutter](https://github.com/linkml/linkml-project-cookiecutter/)
-  that we followed initially. This is required to introduce new features
-  and to realise our idea of a cleaner, easier to update linkml project template.
-* Early releases (0.1.x) are backwards compatibility with
-  [linkml-project-cookiecutter](https://github.com/linkml/linkml-project-cookiecutter/)
-  (same directory layout and commands).
-  This facilitates experimenting with the migration of existing cruft/cookiecutter-based projects.
-  Over time the migration is expected to become more difficult as the cookiecutter template evolves.
-  We don't plan to maintain compatible releases beyond v0.1.7.
-
 The generated project uses [just](https://github.com/casey/just) as preferred command runner, even in the 0.1.x releases.
 
 > The starting point of this template was [linkml-project-cookiecutter](https://github.com/linkml/linkml-project-cookiecutter/)
@@ -72,7 +61,7 @@ To generate a new LinkML project first create a new empty directory for the proj
 
 ```shell
 cd path/to/new/directory
-copier copy --trust https://github.com/dalito/linkml-project-copier .
+copier copy --trust https://github.com/linkml/linkml-project-copier .
 ```
 
 The `--trust` option is needed because the template uses the jinja_extension `jinja2_time`.
@@ -83,7 +72,7 @@ The defaults are fine for most projects, but pick the name for your project care
 It is also possible to use non-default branches or specific tags via `--vcs-ref` which is useful when developing the template:
 
 ```shell
-copier copy --trust --vcs-ref branch-name gh:dalito/linkml-project-copier ./path/to/destination
+copier copy --trust --vcs-ref branch-name gh:linkml/linkml-project-copier ./path/to/destination
 ```
 
 ### Step 2: Set up the LinkML project
@@ -124,7 +113,7 @@ You can also run the pre-configured checks manually with `pre-commit run -a`.
 just test
 ```
 
-This commands generates the project artefacts from the schema, runs pytest for the Python datamodel and tests loading all valid & invalid data examples.
+This commands generates the project artifacts from the schema, runs pytest for the Python data model and tests loading all valid & invalid data examples.
 
 Another important command to check your schema is
 
@@ -232,7 +221,7 @@ To do a pure update without re-configuration run:
 copier update --trust --skip-answered
 ```
 
-If you initialized the project from a non-default branch, you must add the git branch name (or tag name) also to the update commands:
+If you initialize the project from a non-default branch, you must add the git branch name (or tag name) also to the update commands:
 
 ```shell
 copier update --trust --vcs-ref branch-or-tag-name --skip-answered
@@ -243,20 +232,6 @@ However, sometimes this is impossible and conflicts occur.
 They will be inlined into the conflicting files and can be resolved just like any other git conflict.
 
 For more on updating see copier's [documentation](https://copier.readthedocs.io/en/stable/updating/).
-
-### Notes on specific updates
-
-#### From 0.1.x to 0.2.x
-
-The directory layout has changed a lot with the v0.2.0 release.
-Series 0.1.x had still the directory layout from linkml-project-cookiecutter.
-For the update some directories have to be cleaned up.
-Since copier can't do this automatically, you have to do the following steps manually:
-
-* **Before running the update**: Run `just clean` to remove the folder `docs`
-  which was git-ignored in 0.1.x (and linkml-cookiecutter) but will become the main version-managed docs folder in 0.2.x.
-* **After running the update** (before committing): Remove the folder `project/docs`
-  which was also gitignored before v0.2.0 and is of no use for 0.2.0 and later releases.
 
 ## Contributors
 
@@ -272,4 +247,5 @@ The code in this repository is distributed under MIT license.
 
 ## Acknowledgement
 
-[linkml-project-cookiecutter](https://github.com/linkml/linkml-project-cookiecutter) provided a great basis for starting this new linkml project template.
+[linkml-project-cookiecutter](https://github.com/linkml/linkml-project-cookiecutter) provided a great basis for starting this 
+new linkml project template.
