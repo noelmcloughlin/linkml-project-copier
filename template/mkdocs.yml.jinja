@@ -2,13 +2,30 @@
 site_name: "{{project_name}}"
 theme:
   name: material
+  icon:
+    # default logo, add your own here
+    logo: material/book-open-page-variant
   # palette:
   #  scheme: slate
   #  primary: cyan
   features:
     - content.tabs.link
+    - announce.dismiss
+    # navigation.tabs
+    - navigation.top
+    - navigation.instant
+    - navigation.indexes
+    - toc.follow
+    - search.share
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.code.annotations
 
-# for adding extra css/js see https://www.mkdocs.org/user-guide/customizing-your-theme/
+# extra css/js see https://www.mkdocs.org/user-guide/customizing-your-theme/
+extra_javascript:
+  - js/extra-loader.js
+    # https://facelessuser.github.io/pymdown-extensions/extras/mermaid/
 
 plugins:
   - search
@@ -25,12 +42,11 @@ plugins:
 markdown_extensions:
   - pymdownx.superfences:
       # make exceptions to highlighting of code
+      # https://mkdocs-mermaid2.readthedocs.io/en/latest/superfences
       custom_fences:
         # activate display of Mermaid diagrams
         - name: mermaid
           class: mermaid
-          # https://pypi.org/project/mkdocs-pymdownx-material-extras
-          # https://mkdocs-mermaid2.readthedocs.io/en/latest/superfences
           format: !!python/name:pymdownx.superfences.fence_code_format
 
   # TODO rebuild docs on schema change (https://github.com/dalito/linkml-project-copier/issues/39)
