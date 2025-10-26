@@ -15,7 +15,24 @@ plugins:
   - mknotebooks:
       execute: false
   - mermaid2:
+      # https://mkdocs-mermaid2.readthedocs.io/en/latest/library
       version: 11.4.1
+      # Sandbox environment, use local copy of mermaid.js (path relative to docs/)
+      # javascript: js/mermaid.min.js
+  - mkdocs_pymdownx_material_extras
+    # https://github.com/facelessuser/mkdocs_pymdownx_material_extras
+
+markdown_extensions:
+  - pymdownx.superfences:
+      # make exceptions to highlighting of code
+      custom_fences:
+        # activate display of Mermaid diagrams
+        - name: mermaid
+          class: mermaid
+          # https://pypi.org/project/mkdocs-pymdownx-material-extras
+          # https://mkdocs-mermaid2.readthedocs.io/en/latest/superfences
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
   # TODO rebuild docs on schema change (https://github.com/dalito/linkml-project-copier/issues/39)
   # - gen-files:
   #     scripts:
