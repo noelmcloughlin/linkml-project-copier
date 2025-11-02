@@ -7,6 +7,6 @@ updates:
     directories:
       - "/"
       # Note that dependabot can't update actions in the jinja2 action templates
-      - "/template"
+      - "/template/.github/workflows"
     schedule:
       interval: monthly
