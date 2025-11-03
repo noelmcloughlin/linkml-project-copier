@@ -84,7 +84,7 @@ def process_mappings_to_persons(person_maps):
             person.relatedMatch = [o_id]
             person_for_inverse.relatedMatch = [s_id]
         else:
-            logger.info("Unparseable predicate_id: %s", relationship)
+            logger.info("Unparsable predicate_id: %s", relationship)
 
         output_persons.append(person)
         output_persons.append(person_for_inverse)
