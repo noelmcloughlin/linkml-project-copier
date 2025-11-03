@@ -127,7 +127,7 @@ gen-project:
 lift-mappings:
   uv run ./src/{{project_slug}}/util/lifting/import_people_mappings.py
 
-# Export the grap with all instances to Cypher queries
+# Export the graph with all instances to Cypher queries
 [group('graph mappings')]
   uv run ./src/{{project_slug}}/util/export_cypher.py
 {% endif %}
