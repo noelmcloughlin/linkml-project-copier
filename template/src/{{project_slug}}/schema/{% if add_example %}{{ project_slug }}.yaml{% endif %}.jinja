@@ -13,6 +13,7 @@ prefixes:
   linkml: https://w3id.org/linkml/
   biolink: https://w3id.org/biolink/
   schema: http://schema.org/
+  skos: "http://www.w3.org/2004/02/skos/core#"
   PATO: http://purl.obolibrary.org/obo/PATO_
   example: https://example.org/
 default_prefix: {{project_slug}}
@@ -41,6 +42,7 @@ classes:
       - birth_date
       - age_in_years
       - vital_status
+      - exactMatch
     slot_usage:
       primary_email:
         pattern: "^\\S+@[\\S+\\.]+\\S+"
@@ -80,6 +82,11 @@ slots:
   vital_status:
     range: PersonStatus
     description: living or dead status
+  exactMatch:
+    slot_uri: skos:exactMatch
+    range: uriorcurie
+    multivalued: true
+    description: A reference to equivalent concept in another vocabulary
 
 enums:
   PersonStatus:

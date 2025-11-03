@@ -20,6 +20,11 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    {% if add_example %}
+    "cymple>=0.12.0",
+    "logzero>=1.7.0",
+    "sssom>=0.4.16",
+    {% endif %}
     "linkml>=1.9.3",
     "mkdocs-material>=8.2.8",
     "mkdocs-mermaid2-plugin>=1.1.1",
