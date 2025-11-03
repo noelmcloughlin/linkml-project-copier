@@ -16,6 +16,8 @@ permissions: {}
 
 jobs:
   run:
+    # Don't run for PRs from forks which fails due to lack of permissions.
+    if: github.event.pull_request.head.repo.full_name == github.repository
     # Grant GITHUB_TOKEN the permissions required to make a gh-pages deployment
     permissions:
       contents: write  # to let mkdocs write the new docs
@@ -67,4 +69,3 @@ jobs:
         with:
           source-dir: site/
           preview-branch: gh-pages
-
