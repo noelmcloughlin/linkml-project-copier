@@ -1,3 +1,4 @@
+{% raw %}
 # ============ Hint for for Windows Users ============
 
 # On Windows the "sh" shell that comes with Git for Windows should be used.
@@ -119,6 +120,23 @@ gen-project:
   fi
   mkdir -p {{dest}}/typescript
   uv run gen-typescript {{gen_ts_args}} {{source_schema_path}} > {{dest}}/typescript/{{schema_name}}.ts || true
+
+{% endraw %}
+{% if add_example %}
+{% raw %}
+# Lift mappings from tsv files to YAML
+[group('xtra: graph mappings')]
+lift-mappings:
+  uv run {{src}}/{{schema_name}}/util/lifting/import_people_mappings.py
+
+# Export the graph with all instances to Cypher queries
+[group('xtra: graph mappings')]
+cypher-code:
+  uv run {{src}}/{{schema_name}}/util/export_cypher.py
+{% endraw %}
+{% endif %}
+{% raw %}
+
 
 # ============== Migrations recipes for Copier ==============
 
@@ -246,3 +264,4 @@ _ensure_examples_output:  # Ensure a clean examples/output directory exists
 # ============== Include project-specific recipes ==============
 
 import "project.justfile"
+{% endraw %}

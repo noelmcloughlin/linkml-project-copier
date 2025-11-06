@@ -1,0 +1,15 @@
+# curie_map:
+#   {{project_slug}}: https://w3id.org/{{github_org}}/{{project_slug}}/
+#   schema: http://schema.org/
+#   ncit: https://purl.obolibrary.org/obo/
+#   semapv: https://w3id.org/semapv/vocab/
+#   skos: http://www.w3.org/2004/02/skos/core#
+#   wikidata: https://www.wikidata.org/wiki/
+# license: https://www.apache.org/licenses/LICENSE-2.0.html
+# mapping_date: "{% now 'utc', '%Y-%m-%d' %}"
+# mapping_set_description: Proposed mappings associated with Public vocab
+# mapping_set_id: https://github.com/{{github_org}}/{{project_slug}}/tree/main/src/{{project_slug}}/data/mappings/example.sssom.tsv
+subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	author_id	mapping_date	similarity_score	comment
+ncit:NCIT_C25190	Person	skos:exactMatch	schema:HTTPS_Person	Person	semapv:ManualMappingCuration	{{ email }}	{% now 'utc', '%Y-%m-%d' %}	0.99	example entry
+ncit:NCIT_C25190	Person	skos:exactMatch	wikidata:Q215627	Person	semapv:ManualMappingCuration	{{ email }}	{% now 'utc', '%Y-%m-%d' %}	0.99	example entry
+

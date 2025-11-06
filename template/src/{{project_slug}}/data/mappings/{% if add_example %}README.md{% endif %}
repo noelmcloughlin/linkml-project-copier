@@ -1,0 +1,5 @@
+# Mappings
+
+- Mappings should be stored in .tsv files this folder.
+- The mappings are lifted from the the tsv files to the yaml format and stored in the yaml data mappings folder, with the help of a script in the justfile.
+
